@@ -1,0 +1,24 @@
+Step 1- Go to the Kafka folder ->  open cmd on this path and paste the following command to start zookeeper
+	    .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+Step 2- After step 1 open another cmd to run the kafka broker service
+		.\bin\windows\kafka-server-start.bat .\config\server.properties
+		
+		
+Step 3 - Create topic -> Open cmd on kafka folder location
+		 .\bin\windows\kafka-topics.bat --create --topic <topic-name> --bootstrap-server localhost:9092
+		 
+		 ex -> .\bin\windows\kafka-topics.bat --create --topic topic-example-1 --bootstrap-server localhost:9092
+		 
+Step 4 - create producer - publish the messages or data to message queue
+		 
+		 .\bin\windows\kafka-console-producer.bat --topic <topic-name> --bootstrap-server localhost:9092
+		 
+		 ex -> .\bin\windows\kafka-console-producer.bat --topic topic-example-1 --bootstrap-server localhost:9092
+		 
+
+Step 5 - consume topics or messages which are published by producer
+		 
+		 .\bin\windows\kafka-console-consumer.bat --topic <topic-name> --from-beginning --bootstrap-server localhost:9092
+		 
+		 ex -> .\bin\windows\kafka-console-consumer.bat --topic topic-example1 --from-beginning --bootstrap-server localhost:9092
